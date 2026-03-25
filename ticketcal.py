@@ -16,44 +16,34 @@ e = input("Would you like to watch the movie in the week or on the weekend?: ")
 r = input("Do you have a customer card?: ")
 
 cur = "€"
-norm = 10
-adv = 14
+price = 10
 
 # Pricing made by the answers the User gave
 
 if q <= 14:
-    norm = norm-3
-    adv = adv-3
-    print("!!! Price changed !!!") # I added a printout, so I could see, if the price has changed.
+    price = price-3
+    
 elif q >= 65:
-    norm = norm-2
-    adv = adv-2
-    print("!!! Price changed !!!") # also just a printout
+    price = price-2
 
 if e == "weekend":
-    norm = norm+2
-    adv = adv+2
-    print("!!! Price changed !!!") # you know it.
-else:
-    norm = norm
-    adv = adv
+    price = price+2
 
-if r == "y":
-    normcus = norm*0.9
-    advcus = adv*0.9
-    if w == "2D":
-        str(print("Okay, your final price would be:",normcus))
+if r.lower() == "y":
+    price_with_customercard = price*.09
+    if w.lower() == "2D":
+        str(print("Okay, your final price would be:",price_with_customercard))
         exit()
-    elif w == "3D":
-        str(print("Okay, your final price would be:",advcus))
+    elif w.lower() == "3D":
+        str(print("Okay, your final price would be:",price_with_customercard+4))
         exit()
     else:
         print("Incorrect Answer.")
-elif r == "n":
-    if w == "2D":
-        print("Okay, your final price would be :",norm)
-    elif w == "3D":
-        print("Okay, your final price would be",adv)
+elif r.lower() == "n":
+    if w.lower() == "2d":
+        print("Okay, your final price would be :",price)
+    elif w.lower() == "3d":
+        print("Okay, your final price would be",price+4)
 else:
     print("Incorrect Answer")
 
