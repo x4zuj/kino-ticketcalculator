@@ -21,7 +21,7 @@ adv = 14
 
 # Pricing made by the answers the User gave
 
-if q == 13 or q == 14:
+if q <= 14:
     norm = norm-3
     adv = adv-3
     print("!!! Price changed !!!") # I added a printout, so I could see, if the price has changed.
