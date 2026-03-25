@@ -13,7 +13,7 @@ if q < 12:
     # I made exit(), since if the User is below of the age of 12, he isn't allowed to go to the cinema.
 w = input("Would you like to watch 2D or 3D?: ")
 e = input("Would you like to watch the movie in the week or on the weekend?: ")
-r = input("Do you have a customer card?: ")
+r = input("Do you have a customer card? (y/n): ")
 
 cur = "€"
 price = 10
@@ -26,25 +26,21 @@ if q <= 14:
 elif q >= 65:
     price = price-2
 
-if e == "weekend":
+if e.lower() == "weekend":
     price = price+2
 
-if r.lower() == "y":
-    price_with_customercard = price*.09
-    if w.lower() == "2D":
-        str(print("Okay, your final price would be:",price_with_customercard))
-        exit()
-    elif w.lower() == "3D":
-        str(print("Okay, your final price would be:",price_with_customercard+4))
-        exit()
+if r == "y":
+    if w.lower() == "2d":
+        print("Okay, your final price for the 2D film would be:",price*0.9)
+    elif w.lower() == "3d":
+        print("Okay, your final price for the 3D film would be:",(price+4)*0.9)
     else:
         print("Incorrect Answer.")
-elif r.lower() == "n":
+elif r == "n":
     if w.lower() == "2d":
-        print("Okay, your final price would be :",price)
+        print("Okay, your final for price the 2D film would be :",price)
     elif w.lower() == "3d":
-        print("Okay, your final price would be",price+4)
+        print("Okay, your final for price the 3D film would be",price+4)
 else:
     print("Incorrect Answer")
-
     
